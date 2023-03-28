@@ -11,11 +11,11 @@ export const PageSelector = () => {
     
     return (
         <PageSelectorStyle>
-            {page > 1 && (
+            {page > 1 ? (
         <button onClick={() => dispatch(changePage(page - 1))}>
           Página Anterior
         </button>
-      )}
+      ) : <div></div>}
       {page < charactersList.info?.pages && (
         <button onClick={() => dispatch(changePage(page + 1))}>
           Próxima Página

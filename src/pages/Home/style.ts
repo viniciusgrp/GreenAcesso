@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const AppStyle = styled.div`
+export const HomeStyle = styled.div`
   main {
     width: 100%;
     display: flex;
