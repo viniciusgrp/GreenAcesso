@@ -122,7 +122,6 @@ export const Character = () => {
           <p>Localização</p>
           <span>{characters?.location?.name}</span>
         </div>
-        <button>Lista de episódios</button>
       </main>
     </CharacterStyle>
   );

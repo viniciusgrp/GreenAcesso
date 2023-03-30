@@ -10,6 +10,7 @@ export const CharacterStyle = styled.div`
   color: white;
   max-width: 400px;
   height: fit-content;
+  z-index: 100;
 
   main {
     position: relative;
