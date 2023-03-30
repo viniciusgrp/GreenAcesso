@@ -11,6 +11,7 @@ export const CharacterStyle = styled.div`
   max-width: 400px;
   height: fit-content;
   z-index: 100;
+  background-color: rgba(70, 70, 70, 1);
 
   main {
     position: relative;
@@ -19,7 +20,6 @@ export const CharacterStyle = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgba(255, 255, 255, 1);
     border: 2px solid lime;
     padding: 10px 3%;
     max-width: 470px;

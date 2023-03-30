@@ -39,7 +39,6 @@ export const Home = () => {
 
   useEffect(() => {
     dispatch(caracterList(characters));
-    console.log(characters);
   }, [characters]);
 
   if (isLoading) {

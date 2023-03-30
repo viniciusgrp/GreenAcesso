@@ -39,6 +39,7 @@ export const Character = () => {
         setFavorite(true);
       } else {
         localStorage.setItem("@FAVORITES", JSON.stringify([characterId]));
+        setFavorite(true)
       }
     } else {
       const favorites = localStorage.getItem("@FAVORITES");
@@ -62,18 +63,12 @@ export const Character = () => {
     }
   );
 
-  console.log(characters);
-
   useEffect(() => {
     if (characters.created) {
       const created = new Date(characters?.created);
       setCreated(created);
     }
   }, [characters]);
-  useEffect(() => {
-    console.log(characters);
-  }, [characters]);
-
   return (
     <CharacterStyle>
       <main>

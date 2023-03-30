@@ -66,7 +66,7 @@ export const Filters = () => {
                   <option value="alien">Alienigena</option>
                   <option value="Poopybutthole">Poopybutthole</option>
                   <option value="Mythological Creature">Criatura Mitológica</option>
-                  <option value="Humanoid Creature">Humanóide</option>
+                  <option value="Humanoid">Humanóide</option>
                   <option value="Robot">Robô</option>
                   <option value="Cronenberg">Cronenberg</option>
                   <option value="Disease">Doença</option>
