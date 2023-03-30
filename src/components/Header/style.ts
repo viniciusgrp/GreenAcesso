@@ -32,4 +32,23 @@ export const HeaderStyle = styled.header`
         border: 1px solid black;
     }
   }
+
+  @media screen and (min-width: 768px){
+    .upHeader {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 0 5%;
+      flex-direction: row;
+    }
+
+    form {
+      max-width: 60%;
+
+      input {
+        max-width: 400px;
+      }
+    }
+  }
 `;

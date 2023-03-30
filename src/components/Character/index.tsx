@@ -50,6 +50,7 @@ export const Character = () => {
     }
   };
 
+  
   const { data: characters, isLoading } = useQuery(
     ["characterSelect", characterId],
     () => {
@@ -58,8 +59,8 @@ export const Character = () => {
     {
       initialData: {},
     }
-  );
-
+    );
+    
   console.log(characters);
 
   useEffect(() => {
@@ -68,7 +69,10 @@ export const Character = () => {
       setCreated(created);
     }
   }, [characters]);
-
+  useEffect(() => {
+    console.log(characters)
+  },[characters])
+  
   return (
     <CharacterStyle>
       <main>
@@ -84,15 +88,15 @@ export const Character = () => {
         </div>
         <div className="line">
           <p>Estado</p>
-          {characters?.status === "dead" ? (
+          {characters?.status === "Dead" ? (
             <span>
               <FaSkullCrossbones />
             </span>
-          ) : (
+          ) : characters?.status === "Alive" ? (
             <span>
               <BsFillPersonCheckFill />
             </span>
-          )}
+          ) : <span>Unknown</span>}
         </div>
         <div className="line">
           <p>Data de criaçao</p>

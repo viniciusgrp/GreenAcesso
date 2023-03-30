@@ -25,7 +25,7 @@ export const PageSelector = () => {
           pages.push(i);
         }
         setPages(pages);
-      } else if (page >= characters.info.pages - 2) {
+      } else if (page >= characters.info.pages - 2 && characters.info.pages > 5) {
         const pages = [];
         for (
           let i = characters.info.pages - 5;

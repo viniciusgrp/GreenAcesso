@@ -9,11 +9,12 @@ import { HomeStyle } from "./style";
 import { caracterList } from "../../store/modules/characters/actions";
 import { Character } from "../../components/Character";
 import { CharactersContext } from "../../context/charactersContext";
+import { Filters } from "../../components/Filters";
 
 export const Home = () => {
   const dispatch = useDispatch();
 
-  const {nameInput: name, update} = useContext<any>(CharactersContext)
+  const {nameInput: name, update, gender, status, species} = useContext<any>(CharactersContext)
 
   const characterId = useSelector((state: any) => state.characterSelection);
 
@@ -28,7 +29,7 @@ export const Home = () => {
     () => {
       return api
         .get("/character", {
-          params: { page: page, name },
+          params: { page: page, name, gender, status, species },
         })
         .then((res) => res.data);
     },
@@ -50,6 +51,7 @@ export const Home = () => {
     <HomeStyle>
       <Header />
       <main>
+        
         <CharactersList />
         <PageSelector />
         {showModal && characterId && <Character />}
