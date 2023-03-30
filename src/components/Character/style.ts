@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 export const CharacterStyle = styled.div`
-position: fixed;
-right: 0;
-left: 0;
-top: 0px;
-bottom: 0px;
-margin: auto auto;
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0px;
+  bottom: 0px;
+  margin: auto auto;
   color: white;
   max-width: 400px;
   height: fit-content;
@@ -24,14 +24,15 @@ margin: auto auto;
     max-width: 470px;
 
     .closeModal {
-        position: absolute;
-        top: 5%;
-        left: 10px;
-        background-color: red;
-        border-radius: 50%;
-        border: none;
-        height: 50px;
-        font-size: 22px;
+      position: absolute;
+      top: 5%;
+      left: 10px;
+      background-color: red;
+      border-radius: 50%;
+      border: none;
+      height: 50px;
+      font-size: 22px;
+      cursor: pointer;
     }
 
     .red {
@@ -42,6 +43,7 @@ margin: auto auto;
       top: 5%;
       right: 5%;
       font-size: 50px;
+      cursor: pointer;
     }
 
     img {

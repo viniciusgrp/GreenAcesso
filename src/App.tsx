@@ -1,11 +1,14 @@
 import {
     RouterProvider,
   } from "react-router-dom";
+import { CharactersProvider } from "./context/charactersContext";
 import { Router } from "./router";
 
 function App() {
   return (
-    <RouterProvider router={Router}/>
+    <CharactersProvider>
+        <RouterProvider router={Router}/>
+    </CharactersProvider>
   );
 }
 

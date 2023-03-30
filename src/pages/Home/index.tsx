@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { useDispatch, useSelector } from "react-redux";
 import { CharactersList } from "../../components/CharactersList";
@@ -6,26 +6,29 @@ import { Header } from "../../components/Header";
 import { PageSelector } from "../../components/PageSelector";
 import api from "../../services/api";
 import { HomeStyle } from "./style";
-import {caracterList} from "../../store/modules/characters/actions"
-import { Character } from "../Character";
+import { caracterList } from "../../store/modules/characters/actions";
+import { Character } from "../../components/Character";
+import { CharactersContext } from "../../context/charactersContext";
 
 export const Home = () => {
   const dispatch = useDispatch();
+
+  const {nameInput: name, update} = useContext<any>(CharactersContext)
 
   const characterId = useSelector((state: any) => state.characterSelection);
 
   const page = useSelector((state: any) => state.pagination);
 
-  const showModal = useSelector((state: any) => state.modal)
+  const showModal = useSelector((state: any) => state.modal);
 
-  const pageSelection = useSelector((state: any) => state.pageSelection);
+  const params = {page}
 
   const { data: characters, isLoading } = useQuery(
-    ["characters", page],
+    ["characters", page, update],
     () => {
       return api
         .get("/character", {
-          params: { page: page },
+          params: { page: page, name },
         })
         .then((res) => res.data);
     },
@@ -49,7 +52,7 @@ export const Home = () => {
       <main>
         <CharactersList />
         <PageSelector />
-        {showModal && characterId && <Character/>}
+        {showModal && characterId && <Character />}
       </main>
     </HomeStyle>
   );
