@@ -1,4 +1,4 @@
-export const caracterList = (list) => {
+export const caracterList = (list: any) => {
     return {
       type: "CARACTERS_LIST",
       list,

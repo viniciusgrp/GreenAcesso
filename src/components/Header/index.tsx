@@ -8,7 +8,7 @@ import { Filters } from "../Filters";
 export const Header = () => {
   const { setNameInput, update, setUpdate } =
     useContext<any>(CharactersContext);
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState<string>("");
   return (
     <HeaderStyle>
       <div className="upHeader">
@@ -25,6 +25,7 @@ export const Header = () => {
             id="name"
             onChange={(e) => setInput(e.target.value)}
             placeholder="Pesquise um personagem!"
+            required
           />
           <button type="submit">
             <FaSearch />

@@ -8,21 +8,20 @@ import api from "../../services/api";
 import { HomeStyle } from "./style";
 import { caracterList } from "../../store/modules/characters/actions";
 import { Character } from "../../components/Character";
-import { CharactersContext } from "../../context/charactersContext";
-import { Filters } from "../../components/Filters";
+import { CharactersContext, ICharactersContext } from "../../context/charactersContext";
+import RickMorty from "../../img/rickmorty.png"
+import RickMorty2 from "../../img/rickmorty2.png"
 
 export const Home = () => {
   const dispatch = useDispatch();
 
-  const {nameInput: name, update, gender, status, species} = useContext<any>(CharactersContext)
+  const {nameInput: name, update, gender, status, species} = useContext<ICharactersContext>(CharactersContext)
 
   const characterId = useSelector((state: any) => state.characterSelection);
 
   const page = useSelector((state: any) => state.pagination);
 
   const showModal = useSelector((state: any) => state.modal);
-
-  const params = {page}
 
   const { data: characters, isLoading } = useQuery(
     ["characters", page, update],
@@ -51,7 +50,8 @@ export const Home = () => {
     <HomeStyle>
       <Header />
       <main>
-        
+        <img src={RickMorty} className="backRickMorty" />
+        <img src={RickMorty2} className="backRickMorty2" />
         <CharactersList />
         <PageSelector />
         {showModal && characterId && <Character />}

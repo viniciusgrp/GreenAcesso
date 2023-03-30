@@ -8,13 +8,14 @@ export const CharacterListStyle = styled.ul`
   gap: 1rem;
 
   li {
+    z-index: 1;
     width: 90%;
     display: flex;
     justify-content: center;
     flex-direction: column;
     text-align: center;
     padding: 10px 0;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(70, 70, 70, 0.95);
     border-radius: 12px;
     color: #00b5cc;
     height: auto;
@@ -42,6 +43,13 @@ export const CharacterListStyle = styled.ul`
   }
 
   @media screen and (min-width: 768px) {
+    .backRickMorty {
+    width: 500px;
+    z-index: -1;
+    position: absolute;
+    bottom: 0;
+    left: 5%;
+  }
     flex-direction: row;
     justify-content: center;
     gap: 1rem;
@@ -59,6 +67,7 @@ export const CharacterListStyle = styled.ul`
   }
 
   @media screen and (min-width: 1500px) {
+
     max-width: 1400px;
     li {
         max-width: 300px;

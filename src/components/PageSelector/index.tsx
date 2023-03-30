@@ -8,11 +8,9 @@ export const PageSelector = () => {
 
   const characters = useSelector((state: any) => state.characters);
 
-  console.log(characters);
-
   const charactersList = useSelector((state: any) => state.characters);
 
-  const [pages, setPages] = useState([1, 2, 3, 4, 5]);
+  const [pages, setPages] = useState<number[]>([1, 2, 3, 4, 5]);
 
   const dispatch = useDispatch();
 
@@ -35,6 +33,12 @@ export const PageSelector = () => {
           pages.push(i);
         }
         setPages(pages);
+      } else if (characters.info.pages < 5) {
+        const pages = []
+        for (let i = 1; i < characters.info.pages; i++){
+          pages.push(i)
+        }
+        setPages(pages)
       } else {
         setPages([1, 2, 3, 4, 5]);
       }

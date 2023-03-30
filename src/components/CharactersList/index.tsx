@@ -3,6 +3,7 @@ import { CharacterListStyle } from "./style";
 import { characterSelect } from "../../store/modules/characterSelection/actions";
 import { showModal } from "../../store/modules/modal/actions";
 import { useNavigate } from "react-router-dom";
+import { ICharactersResults } from "../../interfaces";
 
 export const CharactersList = () => {
   const charactersList = useSelector((state: any) => state.characters);
@@ -18,7 +19,7 @@ export const CharactersList = () => {
 
   return (
     <CharacterListStyle>
-      {charactersList.results?.map((character: any) => (
+      {charactersList.results?.map((character: ICharactersResults) => (
         <li
           onClick={() => {
             selectCharacter(character.id);

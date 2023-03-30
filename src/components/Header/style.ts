@@ -45,6 +45,7 @@ export const HeaderStyle = styled.header`
 
     form {
       max-width: 60%;
+      justify-content: end;
 
       input {
         max-width: 400px;

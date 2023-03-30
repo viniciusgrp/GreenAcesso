@@ -1,4 +1,4 @@
-const characterReducer = (state = {}, action) => {
+const characterReducer = (state = {}, action: any) => {
     switch (action.type) {
       case "CARACTERS_LIST":
         return action.list

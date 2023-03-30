@@ -11,20 +11,20 @@ import { showModal } from "../../store/modules/modal/actions";
 
 export const Character = () => {
   const characterId = useSelector((state: any) => state.characterSelection);
-  const [favorite, setFavorite] = useState(false);
-  const [created, setCreated] = useState(new Date());
-  const dispatch = useDispatch()
+  const [favorite, setFavorite] = useState<boolean>(false);
+  const [created, setCreated] = useState<Date>(new Date());
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const favorites = localStorage.getItem("@FAVORITES");
 
     if (favorites) {
       const ids = JSON.parse(favorites);
-      const find = ids.find((elem) => elem === characterId);
+      const find = ids.find((elem: number) => elem === characterId);
       if (find) {
         setFavorite(true);
       } else {
-        setFavorite(false)
+        setFavorite(false);
       }
     }
   }, [characterId]);
@@ -36,22 +36,23 @@ export const Character = () => {
         const ids = JSON.parse(favorites);
         ids.push(characterId);
         localStorage.setItem("@FAVORITES", JSON.stringify(ids));
-        setFavorite(true)
+        setFavorite(true);
       } else {
         localStorage.setItem("@FAVORITES", JSON.stringify([characterId]));
       }
     } else {
       const favorites = localStorage.getItem("@FAVORITES");
-      const ids = JSON.parse(favorites);
-      const index = ids.findIndex((id) => id == characterId);
-      ids.slice(index, 1);
-      localStorage.setItem("@FAVORITES", JSON.stringify(ids));
-      setFavorite(false);
+      if (favorites) {
+        const ids: number[] = JSON.parse(favorites);
+        const index = ids.findIndex((id: number) => id == characterId);
+        ids.slice(index, 1);
+        localStorage.setItem("@FAVORITES", JSON.stringify(ids));
+        setFavorite(false);
+      }
     }
   };
 
-  
-  const { data: characters, isLoading } = useQuery(
+  const { data: characters } = useQuery(
     ["characterSelect", characterId],
     () => {
       return api.get(`/character/${characterId}`).then((res) => res.data);
@@ -59,8 +60,8 @@ export const Character = () => {
     {
       initialData: {},
     }
-    );
-    
+  );
+
   console.log(characters);
 
   useEffect(() => {
@@ -70,13 +71,18 @@ export const Character = () => {
     }
   }, [characters]);
   useEffect(() => {
-    console.log(characters)
-  },[characters])
-  
+    console.log(characters);
+  }, [characters]);
+
   return (
     <CharacterStyle>
       <main>
-        <button onClick={() => dispatch(showModal(false))} className="closeModal">X</button>
+        <button
+          onClick={() => dispatch(showModal(false))}
+          className="closeModal"
+        >
+          X
+        </button>
         <AiFillHeart
           onClick={() => updateFavorites()}
           className={`favIcon ${favorite ? "red" : "white"}`}
@@ -96,7 +102,9 @@ export const Character = () => {
             <span>
               <BsFillPersonCheckFill />
             </span>
-          ) : <span>Unknown</span>}
+          ) : (
+            <span>Unknown</span>
+          )}
         </div>
         <div className="line">
           <p>Data de criaçao</p>

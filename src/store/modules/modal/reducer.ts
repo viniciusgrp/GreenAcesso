@@ -1,4 +1,4 @@
-const modalReducer = (state = false, action) => {
+const modalReducer = (state = false, action: any) => {
     switch (action.type) {
       case "SHOW_MODAL":
         return action.modal

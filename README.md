@@ -16,7 +16,7 @@ npm install
 
 4 - Inicie o servidor de desenvolvimento.
 No mesmo terminal digite o comando:
-yarn dev
+npm dev
 
 5 - Aguarde o servidor iniciar e irá aparecer algo assim:
   VITE v4.2.1  ready in 993 ms
@@ -33,7 +33,7 @@ yarn dev
 
 O projeto foi criado utilizando as seguintes tecnologias:
 
-React / Styled-Components / Axios / react-router-dom / react-icons / react-query / date-fns / Redux / Context API / Vite / Vercel
+React / TypeScript / Styled-Components / Axios / react-router-dom / react-icons / react-query / date-fns / Redux / Context API / Vite / Vercel
 
 É possível aplicar diversos filtros de busca dos personagens, desde nome até se está vivo ou não.
 E o melhor: Os filtros são cumulativos! Ou seja, você pode buscar por personagens chamados Rick que estejam mortos.

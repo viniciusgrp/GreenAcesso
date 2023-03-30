@@ -6,12 +6,12 @@ import { changePage } from "../../store/modules/pagination/actions";
 import { useDispatch } from "react-redux";
 
 export const Filters = () => {
-  const [showFilters, setShowFilters] = useState(false);
+  const [showFilters, setShowFilters] = useState<boolean>(false);
   const { update, setUpdate, setGender, setStatus, setSpecie } =
     useContext<any>(CharactersContext);
-  const [selectGender, setSelectGender] = useState("");
-  const [selectStatus, setSelectStatus] = useState("");
-  const [selectSpecie, setSelectSpecie] = useState("");
+  const [selectGender, setSelectGender] = useState<string>("");
+  const [selectStatus, setSelectStatus] = useState<string>("");
+  const [selectSpecie, setSelectSpecie] = useState<string>("");
 
   const sendFilters = () => {
     setGender(selectGender);
