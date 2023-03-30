@@ -19,7 +19,7 @@ export const CharacterStyle = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 1);
     border: 2px solid lime;
     padding: 10px 3%;
     max-width: 470px;
