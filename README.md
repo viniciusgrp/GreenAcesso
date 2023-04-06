@@ -1,3 +1,6 @@
+Confira o deploy:
+https://rick-and-morty-henna-six.vercel.app/
+
 Para rodar o projeto, siga os seguintes passos:
 
 1 - Clone o repositório para a sua maquina.
